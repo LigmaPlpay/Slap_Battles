@@ -4,12 +4,21 @@ end
 
 game:GetService("GuiService"):ClearError()
 
-local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Giangplay/Script/main/Orion_Library_PE_V2.lua")))()
-local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-if game.PlaceId == 6403373529 then
-local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Giangplay/Script/main/Orion_Library_PE_V2.lua")))()
-local Window = OrionLib:MakeWindow({IntroText = "Moai Hub", Name = ("Moai Hub".." | "..HidePremium = false, SaveConfig = false, IntroEnabled = true, ConfigFolder = "slap battls"})
-    
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/LigmaPlpay/Slap_Battles/main/SlapBattles.lua"))()
+
+if game.PlaceId == 11520107397 or game.PlaceId == 6403373529 or game.PlaceId == 9015014224 then
+local bypass;
+    bypass = hookmetamethod(game, "__namecall", function(method, ...) 
+        if getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.Ban then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.AdminGUI then
+            return
+        elseif getnamecallmethod() == "FireServer" and method == game.ReplicatedStorage.WalkSpeedChanged then
+            return
+        end
+        return bypass(method, ...)
+    end)
+	
 ---Anti Void---
 if workspace:FindFirstChild("VoidPart1") == nil then
 local VoidPart1 = Instance.new("Part", workspace)
